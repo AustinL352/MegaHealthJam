@@ -11,6 +11,10 @@ public class AnxietyController : MonoBehaviour {
     public PlayerController playerController;
     private Image blinkColor;
     public RectTransform blinkPosition;
+    public AudioSource heartbeat;
+    public AudioSource ambience;
+    public AudioSource crowd;
+
 
 
     float anxietyLevel = 0;
@@ -56,6 +60,8 @@ public class AnxietyController : MonoBehaviour {
         anxietyLevel = Mathf.Clamp(anxietyLevel, 0, 1);
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
+        heartbeat.volume = anxietyLevel;
+
     }
 
     private void OnTriggerStay(Collider other)
