@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Text : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class Text : MonoBehaviour
+{
+    public GameObject player;
 
     void OnGUI()
     {
-        Vector2 worldPoint = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Label(new Rect(worldPoint.x - 100, (Screen.height - worldPoint.y) - 50, 200, 100), "Text to display.");
+        if (Vector3.Distance(player.transform.position, transform.position) <= 400)
+        {
+            Vector2 worldPoint = Camera.main.WorldToScreenPoint(transform.position);
+            GUI.Label(new Rect(transform.position.x, transform.position.y - 1000, 200, 100), "DEWBACK.");
+        }
     }
 }
