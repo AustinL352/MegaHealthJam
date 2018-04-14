@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Text : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject text;
 
-    //void OnGUI()
-    //{
-    //    if (Vector3.Distance(player.transform.position, transform.position) <= 400)
-    //    {
-    //        Vector2 worldPoint = Camera.main.WorldToScreenPoint(transform.position);
-    //        GUI.Label(new Rect(transform.position.x, transform.position.y - 1000, 200, 100), "DEWBACK.");
-    //    }
-    //}
+    void Update()
+    {
+        if (Vector3.Distance(text.transform.position, transform.position) <= 600)
+            text.gameObject.SetActive(true);
+        else
+            text.gameObject.SetActive(false);
+    }
 }
