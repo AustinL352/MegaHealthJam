@@ -11,9 +11,7 @@ public class PlayerController : MonoBehaviour
     float speed = 250;
     float cameraSpeed = 5;
 
-    float breathTime;
-    float upTimer = 1;
-    float downTimer = 1;
+    float breathTime = 1;
 
     CharacterController characterController;
     public GameObject playerBase;
@@ -36,8 +34,6 @@ public class PlayerController : MonoBehaviour
         //verticalVelocity += Physics.gravity.y * Time.deltaTime;
         //velo.y = verticalVelocity;
 
-        characterController.Move(velo * Time.deltaTime);
-
         horizontalRot += Input.GetAxis("Mouse X") * cameraSpeed;
         verticalRot -= Input.GetAxis("Mouse Y") * cameraSpeed;
         verticalRot = Mathf.Clamp(verticalRot, -upDownRange, upDownRange - 20);
@@ -46,20 +42,20 @@ public class PlayerController : MonoBehaviour
         if (breathe)
         {
             //Translate
-            while (upTimer >= 0)
+            if (breathTime > 0)
             {
-                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + (Time.deltaTime * 10), transform.position.z);
-                transform.position = newPos;
-                upTimer -= Time.deltaTime;
+                velo.y += Time.deltaTime * 1000.0f;
+                breathTime -= Time.deltaTime;
             }
-
-            while (downTimer >= 0)
+            else if (breathTime >= -1)
             {
-                Vector3 newPos = new Vector3(transform.position.x, transform.position.y - (Time.deltaTime * 10), transform.position.z);
-                transform.position = newPos;
-                downTimer -= Time.deltaTime;
+                velo.y -= Time.deltaTime * 1000.0f;
+                breathTime -= Time.deltaTime;
             }
-            breathTime = 0;
         }
+        else
+            breathTime = 1;
+
+        characterController.Move(velo * Time.deltaTime);
     }
 }
