@@ -48,14 +48,14 @@ public class PlayerController : MonoBehaviour
             //Translate
             while (upTimer >= 0)
             {
-                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + Time.deltaTime, transform.position.z);
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + (Time.deltaTime * 10), transform.position.z);
                 transform.position = newPos;
                 upTimer -= Time.deltaTime;
             }
 
             while (downTimer >= 0)
             {
-                Vector3 newPos = new Vector3(transform.position.x, transform.position.y - Time.deltaTime, transform.position.z);
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y - (Time.deltaTime * 10), transform.position.z);
                 transform.position = newPos;
                 downTimer -= Time.deltaTime;
             }
