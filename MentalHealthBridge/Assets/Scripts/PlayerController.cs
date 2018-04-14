@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float verticalVelocity = 0;
+    public bool breathe;
     float horizontalRot = 0;
     float verticalRot = 0;
     float upDownRange = 45.0f;
