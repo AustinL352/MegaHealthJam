@@ -11,12 +11,17 @@ public class PlayerController : MonoBehaviour
     float speed = 250;
     float cameraSpeed = 5;
 
+    float breathTime;
+    float upTimer = 1;
+    float downTimer = 1;
+
     CharacterController characterController;
     public GameObject playerBase;
 
     void Start ()
     {
         characterController = playerBase.GetComponent<CharacterController>();
+        horizontalRot = 90;
     }
 
 	void Update ()
@@ -24,7 +29,8 @@ public class PlayerController : MonoBehaviour
         Vector3 velo = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         velo.Normalize();
 
-        velo = ((transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"))) * speed;
+        if (!breathe)
+            velo = ((transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"))) * speed;
         velo.y = 0;
 
         //verticalVelocity += Physics.gravity.y * Time.deltaTime;
@@ -36,5 +42,24 @@ public class PlayerController : MonoBehaviour
         verticalRot -= Input.GetAxis("Mouse Y") * cameraSpeed;
         verticalRot = Mathf.Clamp(verticalRot, -upDownRange, upDownRange - 20);
         playerBase.transform.localRotation = Quaternion.Euler(verticalRot, horizontalRot, 0);
+
+        if (breathe)
+        {
+            //Translate
+            while (upTimer >= 0)
+            {
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + Time.deltaTime, transform.position.z);
+                transform.position = newPos;
+                upTimer -= Time.deltaTime;
+            }
+
+            while (downTimer >= 0)
+            {
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y - Time.deltaTime, transform.position.z);
+                transform.position = newPos;
+                downTimer -= Time.deltaTime;
+            }
+            breathTime = 0;
+        }
     }
 }
