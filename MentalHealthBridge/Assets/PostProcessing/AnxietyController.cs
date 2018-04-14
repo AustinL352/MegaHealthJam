@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using UnityEngine.UI;
 
 public class AnxietyController : MonoBehaviour {
 
     VignetteModel.Settings vSettings;
     public PostProcessingProfile postProcess;
     public PlayerController playerController;
+    private Image blinkColor;
+    public RectTransform blinkPosition;
 
 
     float anxietyLevel = 0;
@@ -19,6 +22,8 @@ public class AnxietyController : MonoBehaviour {
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
 
+        blinkColor = blinkPosition.gameObject.GetComponent<Image>();
+
     }
 	
 	// Update is called once per frame
@@ -28,17 +33,22 @@ public class AnxietyController : MonoBehaviour {
         if(playerController.breathe)
         {
             breatheTimer += Time.deltaTime;
-
+            //blinkPosition.localScale = new Vector3(blinkPosition.localScale.x, blinkPosition.localScale.y + Mathf.Sin(breatheTimer) * 100, blinkPosition.localScale.z);
+            Color tmp = blinkColor.color;
+            tmp.a = Mathf.Sin(breatheTimer);
+            blinkColor.color = tmp;
         }
-        if(breatheTimer > 1)
+        if(breatheTimer > 3)
         {
             breatheTimer = 0;
             playerController.breathe = false;
+            Color tmp = blinkColor.color;
+            tmp.a = 0;
+            blinkColor.color = tmp;
         }
 
         if (Input.GetButtonDown("E") && !playerController.breathe)
         {
-            Debug.Log("EEEEE");
             anxietyLevel -= .25f;
             playerController.breathe = true;
         }
