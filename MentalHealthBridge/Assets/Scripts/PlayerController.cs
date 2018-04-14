@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool breathe;
+    public bool beach;
+    public AnxietyController anxiety;
+
     float horizontalRot = 0;
     float verticalRot = 0;
     float upDownRange = 45.0f;
