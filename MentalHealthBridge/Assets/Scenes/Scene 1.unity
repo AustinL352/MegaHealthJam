@@ -416,6 +416,8 @@ GameObject:
   - component: {fileID: 1229577918}
   - component: {fileID: 1229577924}
   - component: {fileID: 1229577923}
+  - component: {fileID: 1229577925}
+  - component: {fileID: 1229577926}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -522,6 +524,40 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1229577925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229577917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06e99be62af2f64d9a65b3ad82ca4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vSettings:
+    mode: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    center: {x: 0, y: 0}
+    intensity: 0
+    smoothness: 0
+    roundness: 0
+    mask: {fileID: 0}
+    opacity: 0
+    rounded: 0
+  postProcess: {fileID: 11400000, guid: 2b8203b81e31b2c4e86e9332e5e94f0c, type: 2}
+--- !u!114 &1229577926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229577917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 2b8203b81e31b2c4e86e9332e5e94f0c, type: 2}
 --- !u!1001 &1955650613
 Prefab:
   m_ObjectHideFlags: 0
