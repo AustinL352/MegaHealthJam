@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public bool beach;
 
     public AnxietyController anxiety;
+    public EarthQuakeScene quakeController;
+    public FinalScene finalTrigger;
+
     public Slider slider;
     public Animator anim;
 
@@ -124,6 +127,19 @@ public class PlayerController : MonoBehaviour
 
             Vector3 clamp = new Vector3(transform.position.x, 5, transform.position.z);
             transform.position = clamp;
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Quake")
+        {
+            quakeController.enabled = true;
+        }
+        else if(other.tag == "FinalTrigger")
+        {
+            finalTrigger.enabled = true;
         }
     }
 }
