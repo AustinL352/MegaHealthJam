@@ -18,13 +18,17 @@ public class AnxietyController : MonoBehaviour {
     public AudioSource[] heartBeats;
     public AudioSource[] breathing;
 
+    public string heavyBreath;
+    public string beachSound;
+
+
 
     public AudioSource ambience;
     public AudioSource crowd;
+    private AudioSource beachSource;
 
-
-    float breatheCoolDown = 30;
-    float beachCoolDown = 60;
+    float breatheCoolDown = 15;
+    float beachCoolDown = 30;
 
     int currentLevel = 0;
 
@@ -32,6 +36,9 @@ public class AnxietyController : MonoBehaviour {
     public float anxietyLevel = 0;
     float breatheTimer = 0;
     float beachTimer = 0;
+
+    float breatheCooldownTimer = 0;
+    float beachCooldownTimer = 0;
 
 
 
@@ -41,32 +48,49 @@ public class AnxietyController : MonoBehaviour {
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
 
+        beachCooldownTimer = beachCoolDown;
+        breatheCooldownTimer = breatheCoolDown;
         //breathingOne.Play();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        anxietyLevel += (Time.deltaTime / 120.0f) * 3;
+        if(!playerController.breathe && !playerController.beach)
+            anxietyLevel += (Time.deltaTime / 120.0f) * 3;
         //Color tmp2 = breatheIcon.color;
-        //Debug.Log(tmp2.a);
 
-        if (Input.GetButtonDown("E") && breatheTimer == 0 && !playerController.beach)
+        if (Input.GetButtonDown("E") && breatheCooldownTimer >= breatheCoolDown && !playerController.beach)
         {
-            anxietyLevel -= .1f;
+            anxietyLevel -= .5f;
             playerController.breathe = true;
 
             Color tmp = breatheIcon.color;
             tmp.a = 0;
             breatheIcon.color = tmp;
+
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = Resources.Load(heavyBreath) as AudioClip;
+            audioSource.Play();
+            breatheCooldownTimer = 0;
         }
-        else if (Input.GetButtonDown("Q") && beachTimer == 0 && !playerController.breathe)
+        else if (Input.GetButtonDown("Q") && !playerController.breathe)
         {
-            anxietyLevel -= .1f;
-            playerController.beach = true;
-            Color tmp = beachIcon.color;
-            tmp.a = 0;
-            beachIcon.color = tmp;
+            
+            if (beachCooldownTimer >= beachCoolDown)
+            {
+                anxietyLevel -= .75f;
+                playerController.beach = true;
+                Color tmp = beachIcon.color;
+                tmp.a = 0;
+                beachIcon.color = tmp;
+
+                beachSource = gameObject.AddComponent<AudioSource>();
+                beachSource.clip = Resources.Load(beachSound) as AudioClip;
+                beachSource.volume = 0;
+                beachSource.Play();
+                beachCooldownTimer = 0;
+            }
         }
 
 
@@ -77,15 +101,13 @@ public class AnxietyController : MonoBehaviour {
             tmp.a = Mathf.Sin(breatheTimer * 1.75f) ;
             blinkColor.color = tmp;
         }
-        else if(breatheTimer > 0)
+        else
         {
-            breatheTimer += Time.deltaTime;
-            if (breatheTimer == breatheCoolDown)
-                breatheTimer = 0;
-
+            breatheCooldownTimer += Time.deltaTime;
             Color tmp = breatheIcon.color;
-            tmp.a = Mathf.Lerp(0, 1, (breatheTimer - 3) / (breatheCoolDown - 3));
-            float gray = tmp.grayscale;
+            tmp.a = Mathf.Lerp(0, 1, (breatheCooldownTimer) / (breatheCoolDown));
+            Debug.Log(tmp.a);
+
             breatheIcon.color = tmp;
         }
 
@@ -103,7 +125,7 @@ public class AnxietyController : MonoBehaviour {
             {
                 beachTimer += Time.deltaTime;
                 tmp = blinkColor.color;
-                tmp.a = Mathf.Lerp(0, 1, beachTimer);
+                tmp.a = Mathf.Lerp(0, 1, beachTimer);           
                 blinkColor.color = tmp;
             }
 
@@ -112,24 +134,31 @@ public class AnxietyController : MonoBehaviour {
                 tmp = beach.color;
                 tmp.a = 1 - Mathf.Lerp(0, 1, (beachTimer - 7));
                 beach.color = tmp;
+                beachSource.volume = tmp.a;
+
             }
             else
             {
                 tmp = beach.color;
                 tmp.a = Mathf.Lerp(0, 1, (beachTimer - 1) / 5);
                 beach.color = tmp;
+                beachSource.volume = tmp.a;
+
             }
 
         }
-        else if(beachTimer > 0)
+        else
         {
-            beachTimer += Time.deltaTime;
-            if (beachTimer == beachCoolDown)
-                beachTimer = 0;
-
+            beachCooldownTimer += Time.deltaTime;        
             Color tmp = beachIcon.color;
-            tmp.a = Mathf.Lerp(0, 1, (beachTimer - 9) / (beachCoolDown - 9));
+            tmp.a = Mathf.Lerp(0, 1, (beachCooldownTimer) / (beachCoolDown));
+            Debug.Log(tmp.a);
+
             beachIcon.color = tmp;
+            if (beachSource)
+            {
+                beachSource.Stop();
+            }
         }
 
         if (beachTimer > 9)
@@ -141,6 +170,7 @@ public class AnxietyController : MonoBehaviour {
             tmp = beach.color;
             tmp.a = 0;
             beach.color = tmp;
+            beachTimer = 0;
         }
 
         if (breatheTimer > 3)
@@ -149,6 +179,7 @@ public class AnxietyController : MonoBehaviour {
             Color tmp = blinkColor.color;
             tmp.a = 0;
             blinkColor.color = tmp;
+            breatheTimer = 0;
         }
 
         if (anxietyLevel > .25f)
@@ -158,12 +189,13 @@ public class AnxietyController : MonoBehaviour {
         else
             currentLevel = 0;
 
+
         anxietyLevel = Mathf.Clamp(anxietyLevel, 0, 1);
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
         for(int i =0; i < 3; i++)
         {
-            if (i == currentLevel)
+            if (i == currentLevel && !playerController.breathe && !playerController.beach)
             {
                 heartBeats[i].volume = anxietyLevel;
                 breathing[i].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
