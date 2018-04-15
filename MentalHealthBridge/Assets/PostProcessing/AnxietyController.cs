@@ -12,16 +12,21 @@ public class AnxietyController : MonoBehaviour {
     public Image blinkColor;
     public RawImage beach;
     public Image breatheIcon;
-    public Image beachIcon;
+    public RawImage beachIcon;
 
     public RectTransform blinkPosition;
-    public AudioSource heartbeat;
+    public AudioSource[] heartBeats;
+    public AudioSource[] breathing;
+
+
     public AudioSource ambience;
     public AudioSource crowd;
+
+
     float breatheCoolDown = 30;
     float beachCoolDown = 60;
 
-
+    int currentLevel = 0;
 
     
     public float anxietyLevel = 0;
@@ -36,16 +41,17 @@ public class AnxietyController : MonoBehaviour {
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
 
+        //breathingOne.Play();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        anxietyLevel += Time.deltaTime / 120.0f;
+        anxietyLevel += (Time.deltaTime / 120.0f) * 3;
         //Color tmp2 = breatheIcon.color;
         //Debug.Log(tmp2.a);
 
-        if (Input.GetButtonDown("E") && breatheTimer == 0)
+        if (Input.GetButtonDown("E") && breatheTimer == 0 && !playerController.beach)
         {
             anxietyLevel -= .1f;
             playerController.breathe = true;
@@ -54,7 +60,7 @@ public class AnxietyController : MonoBehaviour {
             tmp.a = 0;
             breatheIcon.color = tmp;
         }
-        else if (Input.GetButtonDown("Q") && beachTimer == 0)
+        else if (Input.GetButtonDown("Q") && beachTimer == 0 && !playerController.breathe)
         {
             anxietyLevel -= .1f;
             playerController.beach = true;
@@ -145,12 +151,43 @@ public class AnxietyController : MonoBehaviour {
             blinkColor.color = tmp;
         }
 
-       
+        if (anxietyLevel > .25f)
+            currentLevel = 1;
+        if (anxietyLevel > .75f)
+            currentLevel = 2;
+        else
+            currentLevel = 0;
 
         anxietyLevel = Mathf.Clamp(anxietyLevel, 0, 1);
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
-        heartbeat.volume = anxietyLevel;
+        for(int i =0; i < 3; i++)
+        {
+            if (i == currentLevel)
+            {
+                heartBeats[i].volume = anxietyLevel;
+                breathing[i].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
+            }
+            else
+            {
+                heartBeats[i].volume = 0;
+                breathing[i].volume = 0;
+            }
+
+        }
+
+
+       // breathing[0].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
+
+        //if(anxietyLevel > .25f && currentBreath == 1)
+        //{
+        //    breathingOne.Stop();
+        //    breathingTwo.Play();
+        //    breathingTwo.loop = true;
+        //    currentBreath = 2;
+        //    Debug.Log(currentBreath);
+        //}
+
 
     }
 
