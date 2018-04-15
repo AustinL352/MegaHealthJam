@@ -250,6 +250,7 @@ public class AnxietyController : MonoBehaviour {
                 if (i == currentLevel && !playerController.breathe && !playerController.beach)
                 {
                     heartBeats[i].volume = anxietyLevel;
+                    Debug.Log(heartBeats[i].volume);
                     breathing[i].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
                 }
                 else
