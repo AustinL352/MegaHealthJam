@@ -31,17 +31,16 @@ public class PlayerController : MonoBehaviour
 
 
     CharacterController characterController;
-    public GameObject playerBase;
     public AudioSource footStep;
 
-    void Start ()
+    void Start()
     {
-        characterController = playerBase.GetComponent<CharacterController>();
+        characterController = transform.GetComponent<CharacterController>();
         horizontalRot = 90;
         AudioSource footStep = new AudioSource();
     }
 
-	void Update ()
+    void Update()
     {
         if (!breathe && !beach)
             velo = ((transform.right * Input.GetAxis("HorizontalButton")) + (transform.forward * Input.GetAxis("VerticalButton"))) * speed;
@@ -52,7 +51,7 @@ public class PlayerController : MonoBehaviour
         //verticalVelocity += Physics.gravity.y * Time.deltaTime;
         //velo.y = verticalVelocity;
 
-        if (Input.GetButton("VerticalButton")  && !breathe && !beach)
+        if (Input.GetButton("VerticalButton") && !breathe && !beach)
         {
             if (walkTime > 0.3f)
             {
@@ -80,7 +79,7 @@ public class PlayerController : MonoBehaviour
             if (walkTime < -0.4F)
                 walkTime = 1;
         }
-        else if(zRot != 0)
+        else if (zRot != 0)
         {
             if (zRot < 0)
                 zRot += (Time.deltaTime * 3);
@@ -91,7 +90,7 @@ public class PlayerController : MonoBehaviour
         horizontalRot += Input.GetAxis("Mouse X") * cameraSpeed;
         verticalRot -= Input.GetAxis("Mouse Y") * cameraSpeed;
         verticalRot = Mathf.Clamp(verticalRot, -upDownRange, upDownRange - 20);
-        playerBase.transform.localRotation = Quaternion.Euler(verticalRot, horizontalRot, zRot);
+        transform.localRotation = Quaternion.Euler(verticalRot, horizontalRot, zRot);
 
         if (breathe)
         {
@@ -119,4 +118,5 @@ public class PlayerController : MonoBehaviour
         else
             anim.SetBool("Anxiety", false);
     }
+
 }
