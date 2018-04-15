@@ -18,10 +18,15 @@ public class AnxietyController : MonoBehaviour {
     public AudioSource heartbeat;
     public AudioSource ambience;
     public AudioSource crowd;
+
+    public AudioSource breathingOne;
+    public AudioSource breathingTwo;
+    public AudioSource breathingThree;
+
     float breatheCoolDown = 30;
     float beachCoolDown = 60;
 
-
+    int currentBreath = 1;
 
     
     public float anxietyLevel = 0;
@@ -36,12 +41,13 @@ public class AnxietyController : MonoBehaviour {
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
 
+        //breathingOne.Play();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        anxietyLevel += Time.deltaTime / 120.0f;
+        anxietyLevel += (Time.deltaTime / 120.0f) * 3;
         //Color tmp2 = breatheIcon.color;
         //Debug.Log(tmp2.a);
 
@@ -151,6 +157,19 @@ public class AnxietyController : MonoBehaviour {
         vSettings.intensity = anxietyLevel;
         postProcess.vignette.settings = vSettings;
         heartbeat.volume = anxietyLevel;
+
+
+        breathingOne.volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
+
+        //if(anxietyLevel > .25f && currentBreath == 1)
+        //{
+        //    breathingOne.Stop();
+        //    breathingTwo.Play();
+        //    breathingTwo.loop = true;
+        //    currentBreath = 2;
+        //    Debug.Log(currentBreath);
+        //}
+
 
     }
 

@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("VerticalButton") )
         {
-            Debug.Log("VericalButton");
             if (walkTime > 0)
                 zRot += (Time.deltaTime * 5);
             else if (walkTime >= -1)
