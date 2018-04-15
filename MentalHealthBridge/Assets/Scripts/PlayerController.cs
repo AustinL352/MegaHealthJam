@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
     public bool breathe;
     public bool beach;
+
     public AnxietyController anxiety;
+    public GameObject sliderObject;
 
     Vector3 velo;
 
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start ()
     {
         characterController = playerBase.GetComponent<CharacterController>();
+        Slider slider = sliderObject.GetComponent<Slider>();
         horizontalRot = 90;
     }
 
@@ -43,14 +47,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("VerticalButton") )
         {
             Debug.Log("VericalButton");
-            if (walkTime > 0.5f)
+            if (walkTime > 0.3f)
                 zRot += (Time.deltaTime * 3);
-            else if (walkTime >= 0)
+            else if (walkTime >= -0.4f)
                 zRot -= (Time.deltaTime * 3);
 
             walkTime -= (Time.deltaTime);
 
-            if (walkTime < 0)
+            if (walkTime < -0.4f)
                 walkTime = 1;
         }
         else if(zRot != 0)
