@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButton("VerticalButton") && !breathe && !beach)
             {
+                anim.SetBool("Walking", true);
                 if (walkTime > 0.3f)
                 {
                     zRot += (Time.deltaTime * 3);
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (zRot != 0)
             {
+               anim.SetBool("Walking", false);
                 if (zRot < 0)
                     zRot += (Time.deltaTime * 3);
                 else if (zRot > 0)
