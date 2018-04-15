@@ -595,7 +595,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 0
-  m_TargetGraphic: {fileID: 1632479579}
+  m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 430017883}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
@@ -2679,6 +2679,8 @@ MonoBehaviour:
   - {fileID: 140003579}
   - {fileID: 572871135}
   - {fileID: 472540498}
+  heavyBreath: Breathing_Relief
+  beachSound: Beach
   ambience: {fileID: 924405985}
   crowd: {fileID: 226845753}
   anxietyLevel: 0
