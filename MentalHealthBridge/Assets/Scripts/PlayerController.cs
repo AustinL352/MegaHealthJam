@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     float zRot = 0;
 
     float upDownRange = 45.0f;
-    float speed = 250;
+    float speed = 150;
     float cameraSpeed = 5;
 
     float breathTime = 1;
@@ -43,22 +43,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("VerticalButton") )
         {
             Debug.Log("VericalButton");
-            if (walkTime > 0)
-                zRot += (Time.deltaTime * 5);
-            else if (walkTime >= -1)
-                zRot -= (Time.deltaTime * 5);
+            if (walkTime > 0.5f)
+                zRot += (Time.deltaTime * 3);
+            else if (walkTime >= 0)
+                zRot -= (Time.deltaTime * 3);
 
             walkTime -= (Time.deltaTime);
 
-            if (walkTime < -1)
+            if (walkTime < 0)
                 walkTime = 1;
         }
         else if(zRot != 0)
         {
             if (zRot < 0)
-                zRot += (Time.deltaTime * 5);
+                zRot += (Time.deltaTime * 3);
             else if (zRot > 0)
-                zRot -= (Time.deltaTime * 5);
+                zRot -= (Time.deltaTime * 3);
         }
 
         horizontalRot += Input.GetAxis("Mouse X") * cameraSpeed;
