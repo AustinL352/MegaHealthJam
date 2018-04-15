@@ -42,81 +42,86 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!breathe && !beach)
-            velo = ((transform.right * Input.GetAxis("HorizontalButton")) + (transform.forward * Input.GetAxis("VerticalButton"))) * speed;
-        else
-            velo = Vector3.zero;
-        velo.y = 0;
-
-        //verticalVelocity += Physics.gravity.y * Time.deltaTime;
-        //velo.y = verticalVelocity;
-
-        if (Input.GetButton("VerticalButton") && !breathe && !beach)
+        if (anxiety.GameStart)
         {
-            if (walkTime > 0.3f)
+            if (!breathe && !beach)
+                velo = ((transform.right * Input.GetAxis("HorizontalButton")) + (transform.forward * Input.GetAxis("VerticalButton"))) * speed;
+            else
+                velo = Vector3.zero;
+            velo.y = 0;
+
+            //verticalVelocity += Physics.gravity.y * Time.deltaTime;
+            //velo.y = verticalVelocity;
+
+            if (Input.GetButton("VerticalButton") && !breathe && !beach)
             {
-                zRot += (Time.deltaTime * 3);
-                if (!PlayedRight)
+                if (walkTime > 0.3f)
                 {
-                    footStep.Play();
-                    PlayedRight = true;
-                    PlayedLeft = false;
+                    zRot += (Time.deltaTime * 3);
+                    if (!PlayedRight)
+                    {
+                        footStep.Play();
+                        PlayedRight = true;
+                        PlayedLeft = false;
+                    }
+                }
+                else if (walkTime >= -0.4)
+                {
+                    zRot -= (Time.deltaTime * 3);
+                    if (!PlayedLeft)
+                    {
+                        footStep.Play();
+                        PlayedRight = false;
+                        PlayedLeft = true;
+                    }
+                }
+
+                walkTime -= (Time.deltaTime);
+
+                if (walkTime < -0.4F)
+                    walkTime = 1;
+            }
+            else if (zRot != 0)
+            {
+                if (zRot < 0)
+                    zRot += (Time.deltaTime * 3);
+                else if (zRot > 0)
+                    zRot -= (Time.deltaTime * 3);
+            }
+
+            horizontalRot += Input.GetAxis("Mouse X") * cameraSpeed;
+            verticalRot -= Input.GetAxis("Mouse Y") * cameraSpeed;
+            verticalRot = Mathf.Clamp(verticalRot, -upDownRange, upDownRange - 20);
+            transform.localRotation = Quaternion.Euler(verticalRot, horizontalRot, zRot);
+
+            if (breathe)
+            {
+                //Translate
+                if (breathTime > 0)
+                {
+                    velo.y += Time.deltaTime * 1000.0f;
+                    breathTime -= Time.deltaTime;
+                }
+                else if (breathTime >= -1)
+                {
+                    velo.y -= Time.deltaTime * 1000.0f;
+                    breathTime -= Time.deltaTime;
                 }
             }
-            else if (walkTime >= -0.4)
-            {
-                zRot -= (Time.deltaTime * 3);
-                if (!PlayedLeft)
-                {
-                    footStep.Play();
-                    PlayedRight = false;
-                    PlayedLeft = true;
-                }
-            }
+            else
+                breathTime = 1;
 
-            walkTime -= (Time.deltaTime);
+            characterController.Move(velo * Time.deltaTime);
 
-            if (walkTime < -0.4F)
-                walkTime = 1;
+            slider.value = anxiety.anxietyLevel;
+
+            if (anxiety.anxietyLevel >= 0.50f)
+                anim.SetBool("Anxiety", true);
+            else
+                anim.SetBool("Anxiety", false);
+
+            Vector3 clamp = new Vector3(transform.position.x, 5, transform.position.z);
+            transform.position = clamp;
         }
-        else if (zRot != 0)
-        {
-            if (zRot < 0)
-                zRot += (Time.deltaTime * 3);
-            else if (zRot > 0)
-                zRot -= (Time.deltaTime * 3);
-        }
-
-        horizontalRot += Input.GetAxis("Mouse X") * cameraSpeed;
-        verticalRot -= Input.GetAxis("Mouse Y") * cameraSpeed;
-        verticalRot = Mathf.Clamp(verticalRot, -upDownRange, upDownRange - 20);
-        transform.localRotation = Quaternion.Euler(verticalRot, horizontalRot, zRot);
-
-        if (breathe)
-        {
-            //Translate
-            if (breathTime > 0)
-            {
-                velo.y += Time.deltaTime * 1000.0f;
-                breathTime -= Time.deltaTime;
-            }
-            else if (breathTime >= -1)
-            {
-                velo.y -= Time.deltaTime * 1000.0f;
-                breathTime -= Time.deltaTime;
-            }
-        }
-        else
-            breathTime = 1;
-
-        characterController.Move(velo * Time.deltaTime);
-
-        slider.value = anxiety.anxietyLevel;
-
-        if (anxiety.anxietyLevel >= 0.50f)
-            anim.SetBool("Anxiety", true);
-        else
-            anim.SetBool("Anxiety", false);
     }
-
 }
