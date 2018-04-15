@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     float zRot = 0;
 
     float upDownRange = 45.0f;
-    float speed = 150;
+    public float speed = 150;
     float cameraSpeed = 5;
 
     float breathTime = 1;

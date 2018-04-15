@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: 17e44fb7695e643ee97af2f6ed9091ea
+timeCreated: 1523758257
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: door
+    100002: door1
+    100004: door10
+    100006: door11
+    100008: door12
+    100010: door13
+    100012: door13 1
+    100014: door13 2
+    100016: door13 3
+    100018: door14
+    100020: door14 1
+    100022: door14 2
+    100024: door14 3
+    100026: door15
+    100028: door16
+    100030: door19
+    100032: door2
+    100034: door20
+    100036: door3
+    100038: door4
+    100040: door5
+    100042: door6
+    100044: door7
+    100046: door8
+    100048: door9
+    100050: door_blockout3
+    100052: door_blockout3 1
+    100054: door_blockout3 10
+    100056: door_blockout3 11
+    100058: door_blockout3 12
+    100060: door_blockout3 13
+    100062: door_blockout3 14
+    100064: door_blockout3 15
+    100066: door_blockout3 16
+    100068: door_blockout3 17
+    100070: door_blockout3 18
+    100072: door_blockout3 19
+    100074: door_blockout3 2
+    100076: door_blockout3 20
+    100078: door_blockout3 21
+    100080: door_blockout3 22
+    100082: door_blockout3 23
+    100084: door_blockout3 24
+    100086: door_blockout3 3
+    100088: door_blockout3 4
+    100090: door_blockout3 5
+    100092: door_blockout3 6
+    100094: door_blockout3 7
+    100096: door_blockout3 8
+    100098: door_blockout3 9
+    100100: doorframe_metal3
+    100102: doorframe_metal3 1
+    100104: doorframe_metal3 10
+    100106: doorframe_metal3 11
+    100108: doorframe_metal3 12
+    100110: doorframe_metal3 13
+    100112: doorframe_metal3 14
+    100114: doorframe_metal3 15
+    100116: doorframe_metal3 16
+    100118: doorframe_metal3 17
+    100120: doorframe_metal3 18
+    100122: doorframe_metal3 2
+    100124: doorframe_metal3 3
+    100126: doorframe_metal3 4
+    100128: doorframe_metal3 5
+    100130: doorframe_metal3 6
+    100132: doorframe_metal3 7
+    100134: doorframe_metal3 8
+    100136: doorframe_metal3 9
+    100138: doubledoor
+    100140: doubledoor1
+    100142: doubledoor2
+    100144: doubledoor3
+    100146: group10
+    100148: group11
+    100150: group12
+    100152: group4
+    100154: group5
+    100156: group6
+    100158: group7
+    100160: group8
+    100162: group9
+    100164: handle6
+    100166: handle6 1
+    100168: handle6 10
+    100170: handle6 11
+    100172: handle6 12
+    100174: handle6 13
+    100176: handle6 14
+    100178: handle6 15
+    100180: handle6 16
+    100182: handle6 17
+    100184: handle6 18
+    100186: handle6 19
+    100188: handle6 2
+    100190: handle6 20
+    100192: handle6 21
+    100194: handle6 22
+    100196: handle6 23
+    100198: handle6 24
+    100200: handle6 3
+    100202: handle6 4
+    100204: handle6 5
+    100206: handle6 6
+    100208: handle6 7
+    100210: handle6 8
+    100212: handle6 9
+    100214: handle7
+    100216: handle7 1
+    100218: handle7 10
+    100220: handle7 11
+    100222: handle7 12
+    100224: handle7 13
+    100226: handle7 14
+    100228: handle7 15
+    100230: handle7 16
+    100232: handle7 17
+    100234: handle7 18
+    100236: handle7 19
+    100238: handle7 2
+    100240: handle7 20
+    100242: handle7 21
+    100244: handle7 22
+    100246: handle7 23
+    100248: handle7 24
+    100250: handle7 3
+    100252: handle7 4
+    100254: handle7 5
+    100256: handle7 6
+    100258: handle7 7
+    100260: handle7 8
+    100262: handle7 9
+    100264: polySurface31
+    100266: polySurface38
+    100268: ringthing6
+    100270: ringthing6 1
+    100272: ringthing6 10
+    100274: ringthing6 11
+    100276: ringthing6 12
+    100278: ringthing6 13
+    100280: ringthing6 14
+    100282: ringthing6 15
+    100284: ringthing6 16
+    100286: ringthing6 17
+    100288: ringthing6 18
+    100290: ringthing6 19
+    100292: ringthing6 2
+    100294: ringthing6 20
+    100296: ringthing6 21
+    100298: ringthing6 22
+    100300: ringthing6 23
+    100302: ringthing6 24
+    100304: ringthing6 3
+    100306: ringthing6 4
+    100308: ringthing6 5
+    100310: ringthing6 6
+    100312: ringthing6 7
+    100314: ringthing6 8
+    100316: ringthing6 9
+    100318: ringthing7
+    100320: ringthing7 1
+    100322: ringthing7 10
+    100324: ringthing7 11
+    100326: ringthing7 12
+    100328: ringthing7 13
+    100330: ringthing7 14
+    100332: ringthing7 15
+    100334: ringthing7 16
+    100336: ringthing7 17
+    100338: ringthing7 18
+    100340: ringthing7 19
+    100342: ringthing7 2
+    100344: ringthing7 20
+    100346: ringthing7 21
+    100348: ringthing7 22
+    100350: ringthing7 23
+    100352: ringthing7 24
+    100354: ringthing7 3
+    100356: ringthing7 4
+    100358: ringthing7 5
+    100360: ringthing7 6
+    100362: ringthing7 7
+    100364: ringthing7 8
+    100366: ringthing7 9
+    100368: step3
+    100370: step3 1
+    100372: step3 10
+    100374: step3 11
+    100376: step3 12
+    100378: step3 13
+    100380: step3 14
+    100382: step3 15
+    100384: step3 16
+    100386: step3 17
+    100388: step3 18
+    100390: step3 19
+    100392: step3 2
+    100394: step3 20
+    100396: step3 21
+    100398: step3 22
+    100400: step3 23
+    100402: step3 24
+    100404: step3 3
+    100406: step3 4
+    100408: step3 5
+    100410: step3 6
+    100412: step3 7
+    100414: step3 8
+    100416: step3 9
+    100418: //RootNode
+    400000: door
+    400002: door1
+    400004: door10
+    400006: door11
+    400008: door12
+    400010: door13
+    400012: door13 1
+    400014: door13 2
+    400016: door13 3
+    400018: door14
+    400020: door14 1
+    400022: door14 2
+    400024: door14 3
+    400026: door15
+    400028: door16
+    400030: door19
+    400032: door2
+    400034: door20
+    400036: door3
+    400038: door4
+    400040: door5
+    400042: door6
+    400044: door7
+    400046: door8
+    400048: door9
+    400050: door_blockout3
+    400052: door_blockout3 1
+    400054: door_blockout3 10
+    400056: door_blockout3 11
+    400058: door_blockout3 12
+    400060: door_blockout3 13
+    400062: door_blockout3 14
+    400064: door_blockout3 15
+    400066: door_blockout3 16
+    400068: door_blockout3 17
+    400070: door_blockout3 18
+    400072: door_blockout3 19
+    400074: door_blockout3 2
+    400076: door_blockout3 20
+    400078: door_blockout3 21
+    400080: door_blockout3 22
+    400082: door_blockout3 23
+    400084: door_blockout3 24
+    400086: door_blockout3 3
+    400088: door_blockout3 4
+    400090: door_blockout3 5
+    400092: door_blockout3 6
+    400094: door_blockout3 7
+    400096: door_blockout3 8
+    400098: door_blockout3 9
+    400100: doorframe_metal3
+    400102: doorframe_metal3 1
+    400104: doorframe_metal3 10
+    400106: doorframe_metal3 11
+    400108: doorframe_metal3 12
+    400110: doorframe_metal3 13
+    400112: doorframe_metal3 14
+    400114: doorframe_metal3 15
+    400116: doorframe_metal3 16
+    400118: doorframe_metal3 17
+    400120: doorframe_metal3 18
+    400122: doorframe_metal3 2
+    400124: doorframe_metal3 3
+    400126: doorframe_metal3 4
+    400128: doorframe_metal3 5
+    400130: doorframe_metal3 6
+    400132: doorframe_metal3 7
+    400134: doorframe_metal3 8
+    400136: doorframe_metal3 9
+    400138: doubledoor
+    400140: doubledoor1
+    400142: doubledoor2
+    400144: doubledoor3
+    400146: group10
+    400148: group11
+    400150: group12
+    400152: group4
+    400154: group5
+    400156: group6
+    400158: group7
+    400160: group8
+    400162: group9
+    400164: handle6
+    400166: handle6 1
+    400168: handle6 10
+    400170: handle6 11
+    400172: handle6 12
+    400174: handle6 13
+    400176: handle6 14
+    400178: handle6 15
+    400180: handle6 16
+    400182: handle6 17
+    400184: handle6 18
+    400186: handle6 19
+    400188: handle6 2
+    400190: handle6 20
+    400192: handle6 21
+    400194: handle6 22
+    400196: handle6 23
+    400198: handle6 24
+    400200: handle6 3
+    400202: handle6 4
+    400204: handle6 5
+    400206: handle6 6
+    400208: handle6 7
+    400210: handle6 8
+    400212: handle6 9
+    400214: handle7
+    400216: handle7 1
+    400218: handle7 10
+    400220: handle7 11
+    400222: handle7 12
+    400224: handle7 13
+    400226: handle7 14
+    400228: handle7 15
+    400230: handle7 16
+    400232: handle7 17
+    400234: handle7 18
+    400236: handle7 19
+    400238: handle7 2
+    400240: handle7 20
+    400242: handle7 21
+    400244: handle7 22
+    400246: handle7 23
+    400248: handle7 24
+    400250: handle7 3
+    400252: handle7 4
+    400254: handle7 5
+    400256: handle7 6
+    400258: handle7 7
+    400260: handle7 8
+    400262: handle7 9
+    400264: polySurface31
+    400266: polySurface38
+    400268: ringthing6
+    400270: ringthing6 1
+    400272: ringthing6 10
+    400274: ringthing6 11
+    400276: ringthing6 12
+    400278: ringthing6 13
+    400280: ringthing6 14
+    400282: ringthing6 15
+    400284: ringthing6 16
+    400286: ringthing6 17
+    400288: ringthing6 18
+    400290: ringthing6 19
+    400292: ringthing6 2
+    400294: ringthing6 20
+    400296: ringthing6 21
+    400298: ringthing6 22
+    400300: ringthing6 23
+    400302: ringthing6 24
+    400304: ringthing6 3
+    400306: ringthing6 4
+    400308: ringthing6 5
+    400310: ringthing6 6
+    400312: ringthing6 7
+    400314: ringthing6 8
+    400316: ringthing6 9
+    400318: ringthing7
+    400320: ringthing7 1
+    400322: ringthing7 10
+    400324: ringthing7 11
+    400326: ringthing7 12
+    400328: ringthing7 13
+    400330: ringthing7 14
+    400332: ringthing7 15
+    400334: ringthing7 16
+    400336: ringthing7 17
+    400338: ringthing7 18
+    400340: ringthing7 19
+    400342: ringthing7 2
+    400344: ringthing7 20
+    400346: ringthing7 21
+    400348: ringthing7 22
+    400350: ringthing7 23
+    400352: ringthing7 24
+    400354: ringthing7 3
+    400356: ringthing7 4
+    400358: ringthing7 5
+    400360: ringthing7 6
+    400362: ringthing7 7
+    400364: ringthing7 8
+    400366: ringthing7 9
+    400368: step3
+    400370: step3 1
+    400372: step3 10
+    400374: step3 11
+    400376: step3 12
+    400378: step3 13
+    400380: step3 14
+    400382: step3 15
+    400384: step3 16
+    400386: step3 17
+    400388: step3 18
+    400390: step3 19
+    400392: step3 2
+    400394: step3 20
+    400396: step3 21
+    400398: step3 22
+    400400: step3 23
+    400402: step3 24
+    400404: step3 3
+    400406: step3 4
+    400408: step3 5
+    400410: step3 6
+    400412: step3 7
+    400414: step3 8
+    400416: step3 9
+    400418: //RootNode
+    2100000: walls_and_doors_mat
+    2300000: door_blockout3
+    2300002: door_blockout3 1
+    2300004: door_blockout3 10
+    2300006: door_blockout3 11
+    2300008: door_blockout3 12
+    2300010: door_blockout3 13
+    2300012: door_blockout3 14
+    2300014: door_blockout3 15
+    2300016: door_blockout3 16
+    2300018: door_blockout3 17
+    2300020: door_blockout3 18
+    2300022: door_blockout3 19
+    2300024: door_blockout3 2
+    2300026: door_blockout3 20
+    2300028: door_blockout3 21
+    2300030: door_blockout3 22
+    2300032: door_blockout3 23
+    2300034: door_blockout3 24
+    2300036: door_blockout3 3
+    2300038: door_blockout3 4
+    2300040: door_blockout3 5
+    2300042: door_blockout3 6
+    2300044: door_blockout3 7
+    2300046: door_blockout3 8
+    2300048: door_blockout3 9
+    2300050: doorframe_metal3
+    2300052: doorframe_metal3 1
+    2300054: doorframe_metal3 10
+    2300056: doorframe_metal3 11
+    2300058: doorframe_metal3 12
+    2300060: doorframe_metal3 13
+    2300062: doorframe_metal3 14
+    2300064: doorframe_metal3 15
+    2300066: doorframe_metal3 16
+    2300068: doorframe_metal3 17
+    2300070: doorframe_metal3 18
+    2300072: doorframe_metal3 2
+    2300074: doorframe_metal3 3
+    2300076: doorframe_metal3 4
+    2300078: doorframe_metal3 5
+    2300080: doorframe_metal3 6
+    2300082: doorframe_metal3 7
+    2300084: doorframe_metal3 8
+    2300086: doorframe_metal3 9
+    2300088: handle6
+    2300090: handle6 1
+    2300092: handle6 10
+    2300094: handle6 11
+    2300096: handle6 12
+    2300098: handle6 13
+    2300100: handle6 14
+    2300102: handle6 15
+    2300104: handle6 16
+    2300106: handle6 17
+    2300108: handle6 18
+    2300110: handle6 19
+    2300112: handle6 2
+    2300114: handle6 20
+    2300116: handle6 21
+    2300118: handle6 22
+    2300120: handle6 23
+    2300122: handle6 24
+    2300124: handle6 3
+    2300126: handle6 4
+    2300128: handle6 5
+    2300130: handle6 6
+    2300132: handle6 7
+    2300134: handle6 8
+    2300136: handle6 9
+    2300138: handle7
+    2300140: handle7 1
+    2300142: handle7 10
+    2300144: handle7 11
+    2300146: handle7 12
+    2300148: handle7 13
+    2300150: handle7 14
+    2300152: handle7 15
+    2300154: handle7 16
+    2300156: handle7 17
+    2300158: handle7 18
+    2300160: handle7 19
+    2300162: handle7 2
+    2300164: handle7 20
+    2300166: handle7 21
+    2300168: handle7 22
+    2300170: handle7 23
+    2300172: handle7 24
+    2300174: handle7 3
+    2300176: handle7 4
+    2300178: handle7 5
+    2300180: handle7 6
+    2300182: handle7 7
+    2300184: handle7 8
+    2300186: handle7 9
+    2300188: polySurface31
+    2300190: polySurface38
+    2300192: ringthing6
+    2300194: ringthing6 1
+    2300196: ringthing6 10
+    2300198: ringthing6 11
+    2300200: ringthing6 12
+    2300202: ringthing6 13
+    2300204: ringthing6 14
+    2300206: ringthing6 15
+    2300208: ringthing6 16
+    2300210: ringthing6 17
+    2300212: ringthing6 18
+    2300214: ringthing6 19
+    2300216: ringthing6 2
+    2300218: ringthing6 20
+    2300220: ringthing6 21
+    2300222: ringthing6 22
+    2300224: ringthing6 23
+    2300226: ringthing6 24
+    2300228: ringthing6 3
+    2300230: ringthing6 4
+    2300232: ringthing6 5
+    2300234: ringthing6 6
+    2300236: ringthing6 7
+    2300238: ringthing6 8
+    2300240: ringthing6 9
+    2300242: ringthing7
+    2300244: ringthing7 1
+    2300246: ringthing7 10
+    2300248: ringthing7 11
+    2300250: ringthing7 12
+    2300252: ringthing7 13
+    2300254: ringthing7 14
+    2300256: ringthing7 15
+    2300258: ringthing7 16
+    2300260: ringthing7 17
+    2300262: ringthing7 18
+    2300264: ringthing7 19
+    2300266: ringthing7 2
+    2300268: ringthing7 20
+    2300270: ringthing7 21
+    2300272: ringthing7 22
+    2300274: ringthing7 23
+    2300276: ringthing7 24
+    2300278: ringthing7 3
+    2300280: ringthing7 4
+    2300282: ringthing7 5
+    2300284: ringthing7 6
+    2300286: ringthing7 7
+    2300288: ringthing7 8
+    2300290: ringthing7 9
+    2300292: step3
+    2300294: step3 1
+    2300296: step3 10
+    2300298: step3 11
+    2300300: step3 12
+    2300302: step3 13
+    2300304: step3 14
+    2300306: step3 15
+    2300308: step3 16
+    2300310: step3 17
+    2300312: step3 18
+    2300314: step3 19
+    2300316: step3 2
+    2300318: step3 20
+    2300320: step3 21
+    2300322: step3 22
+    2300324: step3 23
+    2300326: step3 24
+    2300328: step3 3
+    2300330: step3 4
+    2300332: step3 5
+    2300334: step3 6
+    2300336: step3 7
+    2300338: step3 8
+    2300340: step3 9
+    3300000: door_blockout3
+    3300002: door_blockout3 1
+    3300004: door_blockout3 10
+    3300006: door_blockout3 11
+    3300008: door_blockout3 12
+    3300010: door_blockout3 13
+    3300012: door_blockout3 14
+    3300014: door_blockout3 15
+    3300016: door_blockout3 16
+    3300018: door_blockout3 17
+    3300020: door_blockout3 18
+    3300022: door_blockout3 19
+    3300024: door_blockout3 2
+    3300026: door_blockout3 20
+    3300028: door_blockout3 21
+    3300030: door_blockout3 22
+    3300032: door_blockout3 23
+    3300034: door_blockout3 24
+    3300036: door_blockout3 3
+    3300038: door_blockout3 4
+    3300040: door_blockout3 5
+    3300042: door_blockout3 6
+    3300044: door_blockout3 7
+    3300046: door_blockout3 8
+    3300048: door_blockout3 9
+    3300050: doorframe_metal3
+    3300052: doorframe_metal3 1
+    3300054: doorframe_metal3 10
+    3300056: doorframe_metal3 11
+    3300058: doorframe_metal3 12
+    3300060: doorframe_metal3 13
+    3300062: doorframe_metal3 14
+    3300064: doorframe_metal3 15
+    3300066: doorframe_metal3 16
+    3300068: doorframe_metal3 17
+    3300070: doorframe_metal3 18
+    3300072: doorframe_metal3 2
+    3300074: doorframe_metal3 3
+    3300076: doorframe_metal3 4
+    3300078: doorframe_metal3 5
+    3300080: doorframe_metal3 6
+    3300082: doorframe_metal3 7
+    3300084: doorframe_metal3 8
+    3300086: doorframe_metal3 9
+    3300088: handle6
+    3300090: handle6 1
+    3300092: handle6 10
+    3300094: handle6 11
+    3300096: handle6 12
+    3300098: handle6 13
+    3300100: handle6 14
+    3300102: handle6 15
+    3300104: handle6 16
+    3300106: handle6 17
+    3300108: handle6 18
+    3300110: handle6 19
+    3300112: handle6 2
+    3300114: handle6 20
+    3300116: handle6 21
+    3300118: handle6 22
+    3300120: handle6 23
+    3300122: handle6 24
+    3300124: handle6 3
+    3300126: handle6 4
+    3300128: handle6 5
+    3300130: handle6 6
+    3300132: handle6 7
+    3300134: handle6 8
+    3300136: handle6 9
+    3300138: handle7
+    3300140: handle7 1
+    3300142: handle7 10
+    3300144: handle7 11
+    3300146: handle7 12
+    3300148: handle7 13
+    3300150: handle7 14
+    3300152: handle7 15
+    3300154: handle7 16
+    3300156: handle7 17
+    3300158: handle7 18
+    3300160: handle7 19
+    3300162: handle7 2
+    3300164: handle7 20
+    3300166: handle7 21
+    3300168: handle7 22
+    3300170: handle7 23
+    3300172: handle7 24
+    3300174: handle7 3
+    3300176: handle7 4
+    3300178: handle7 5
+    3300180: handle7 6
+    3300182: handle7 7
+    3300184: handle7 8
+    3300186: handle7 9
+    3300188: polySurface31
+    3300190: polySurface38
+    3300192: ringthing6
+    3300194: ringthing6 1
+    3300196: ringthing6 10
+    3300198: ringthing6 11
+    3300200: ringthing6 12
+    3300202: ringthing6 13
+    3300204: ringthing6 14
+    3300206: ringthing6 15
+    3300208: ringthing6 16
+    3300210: ringthing6 17
+    3300212: ringthing6 18
+    3300214: ringthing6 19
+    3300216: ringthing6 2
+    3300218: ringthing6 20
+    3300220: ringthing6 21
+    3300222: ringthing6 22
+    3300224: ringthing6 23
+    3300226: ringthing6 24
+    3300228: ringthing6 3
+    3300230: ringthing6 4
+    3300232: ringthing6 5
+    3300234: ringthing6 6
+    3300236: ringthing6 7
+    3300238: ringthing6 8
+    3300240: ringthing6 9
+    3300242: ringthing7
+    3300244: ringthing7 1
+    3300246: ringthing7 10
+    3300248: ringthing7 11
+    3300250: ringthing7 12
+    3300252: ringthing7 13
+    3300254: ringthing7 14
+    3300256: ringthing7 15
+    3300258: ringthing7 16
+    3300260: ringthing7 17
+    3300262: ringthing7 18
+    3300264: ringthing7 19
+    3300266: ringthing7 2
+    3300268: ringthing7 20
+    3300270: ringthing7 21
+    3300272: ringthing7 22
+    3300274: ringthing7 23
+    3300276: ringthing7 24
+    3300278: ringthing7 3
+    3300280: ringthing7 4
+    3300282: ringthing7 5
+    3300284: ringthing7 6
+    3300286: ringthing7 7
+    3300288: ringthing7 8
+    3300290: ringthing7 9
+    3300292: step3
+    3300294: step3 1
+    3300296: step3 10
+    3300298: step3 11
+    3300300: step3 12
+    3300302: step3 13
+    3300304: step3 14
+    3300306: step3 15
+    3300308: step3 16
+    3300310: step3 17
+    3300312: step3 18
+    3300314: step3 19
+    3300316: step3 2
+    3300318: step3 20
+    3300320: step3 21
+    3300322: step3 22
+    3300324: step3 23
+    3300326: step3 24
+    3300328: step3 3
+    3300330: step3 4
+    3300332: step3 5
+    3300334: step3 6
+    3300336: step3 7
+    3300338: step3 8
+    3300340: step3 9
+    4300000: doorframe_metal3
+    4300002: ringthing6
+    4300004: handle6
+    4300006: ringthing7
+    4300008: handle7
+    4300010: door_blockout3
+    4300012: step3
+    4300014: doorframe_metal3
+    4300016: ringthing6
+    4300018: handle6
+    4300020: ringthing7
+    4300022: handle7
+    4300024: door_blockout3
+    4300026: step3
+    4300028: doorframe_metal3
+    4300030: ringthing6
+    4300032: handle6
+    4300034: ringthing7
+    4300036: handle7
+    4300038: door_blockout3
+    4300040: step3
+    4300042: doorframe_metal3
+    4300044: ringthing6
+    4300046: handle6
+    4300048: ringthing7
+    4300050: handle7
+    4300052: door_blockout3
+    4300054: step3
+    4300056: doorframe_metal3
+    4300058: ringthing6
+    4300060: handle6
+    4300062: ringthing7
+    4300064: handle7
+    4300066: door_blockout3
+    4300068: step3
+    4300070: doorframe_metal3
+    4300072: ringthing6
+    4300074: handle6
+    4300076: ringthing7
+    4300078: handle7
+    4300080: door_blockout3
+    4300082: step3
+    4300084: doorframe_metal3
+    4300086: ringthing6
+    4300088: handle6
+    4300090: ringthing7
+    4300092: handle7
+    4300094: door_blockout3
+    4300096: step3
+    4300098: doorframe_metal3
+    4300100: ringthing6
+    4300102: handle6
+    4300104: ringthing7
+    4300106: handle7
+    4300108: door_blockout3
+    4300110: step3
+    4300112: doorframe_metal3
+    4300114: ringthing6
+    4300116: handle6
+    4300118: ringthing7
+    4300120: handle7
+    4300122: door_blockout3
+    4300124: step3
+    4300126: polySurface38
+    4300128: doorframe_metal3
+    4300130: ringthing6
+    4300132: handle6
+    4300134: ringthing7
+    4300136: handle7
+    4300138: door_blockout3
+    4300140: step3
+    4300142: doorframe_metal3
+    4300144: ringthing6
+    4300146: handle6
+    4300148: ringthing7
+    4300150: handle7
+    4300152: door_blockout3
+    4300154: step3
+    4300156: doorframe_metal3
+    4300158: ringthing6
+    4300160: handle6
+    4300162: ringthing7
+    4300164: handle7
+    4300166: door_blockout3
+    4300168: step3
+    4300170: doorframe_metal3
+    4300172: ringthing6
+    4300174: handle6
+    4300176: ringthing7
+    4300178: handle7
+    4300180: door_blockout3
+    4300182: step3
+    4300184: ringthing6
+    4300186: handle6
+    4300188: ringthing7
+    4300190: handle7
+    4300192: door_blockout3
+    4300194: step3
+    4300196: doorframe_metal3
+    4300198: step3
+    4300200: handle7
+    4300202: ringthing7
+    4300204: ringthing6
+    4300206: handle6
+    4300208: door_blockout3
+    4300210: polySurface31
+    4300212: doorframe_metal3
+    4300214: ringthing6
+    4300216: handle6
+    4300218: ringthing7
+    4300220: handle7
+    4300222: door_blockout3
+    4300224: step3
+    4300226: ringthing6
+    4300228: handle6
+    4300230: ringthing7
+    4300232: handle7
+    4300234: door_blockout3
+    4300236: step3
+    4300238: doorframe_metal3
+    4300240: ringthing6
+    4300242: handle6
+    4300244: ringthing7
+    4300246: handle7
+    4300248: door_blockout3
+    4300250: step3
+    4300252: ringthing6
+    4300254: handle6
+    4300256: ringthing7
+    4300258: handle7
+    4300260: door_blockout3
+    4300262: step3
+    4300264: doorframe_metal3
+    4300266: step3
+    4300268: handle6
+    4300270: ringthing6
+    4300272: door_blockout3
+    4300274: ringthing7
+    4300276: handle7
+    4300278: step3
+    4300280: ringthing6
+    4300282: door_blockout3
+    4300284: handle7
+    4300286: ringthing7
+    4300288: handle6
+    4300290: doorframe_metal3
+    4300292: step3
+    4300294: handle7
+    4300296: door_blockout3
+    4300298: handle6
+    4300300: ringthing6
+    4300302: ringthing7
+    4300304: step3
+    4300306: handle7
+    4300308: ringthing6
+    4300310: handle6
+    4300312: ringthing7
+    4300314: door_blockout3
+    4300316: doorframe_metal3
+    4300318: step3
+    4300320: ringthing7
+    4300322: handle6
+    4300324: ringthing6
+    4300326: door_blockout3
+    4300328: handle7
+    4300330: step3
+    4300332: handle6
+    4300334: ringthing6
+    4300336: door_blockout3
+    4300338: ringthing7
+    4300340: handle7
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: walls_and_doors_mat
+    second: {fileID: 2100000, guid: 07acb35d36cd34494b771d39e6001e49, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
