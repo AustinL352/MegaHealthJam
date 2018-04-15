@@ -74,7 +74,6 @@ public class AnxietyController : MonoBehaviour {
         blinkColor.color = tmp;
 
         startText.SetActive(true);
-
     }
 	
 	// Update is called once per frame
