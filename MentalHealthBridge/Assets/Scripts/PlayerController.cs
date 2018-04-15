@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     public AnxietyController anxiety;
     public EarthQuakeScene quakeController;
+    public FinalScene finalTrigger;
+
     public Slider slider;
     public Animator anim;
 
@@ -131,9 +133,11 @@ public class PlayerController : MonoBehaviour
     {
         if(other.tag == "Quake")
         {
-            Debug.Log("Quake");   
             quakeController.enabled = true;
-
+        }
+        else if(other.tag == "FinalTrigger")
+        {
+            finalTrigger.enabled = true;
         }
     }
 }

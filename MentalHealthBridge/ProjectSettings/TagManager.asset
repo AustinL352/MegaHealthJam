@@ -8,6 +8,7 @@ TagManager:
   - NegativeD
   - Meditation
   - Quake
+  - FinalTrigger
   layers:
   - Default
   - TransparentFX

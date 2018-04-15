@@ -52,12 +52,16 @@ public class AnxietyController : MonoBehaviour {
     float breatheCooldownTimer = 0;
     float beachCooldownTimer = 0;
     float positiveCooldownTimer = 0;
+    float fadeTimer = 0;
 
     public bool GameStart = false;
     public bool Quakin = false;
+    public bool Final = false;
+    public bool fadOut = false;
 
     public GameObject startText;
     public GameObject quake;
+
 
 
 
@@ -82,6 +86,16 @@ public class AnxietyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if(fadOut)
+        {
+            fadeTimer += Time.deltaTime;
+            Color tmp = blinkColor.color;
+            tmp.a = Mathf.Lerp(0, 1, fadeTimer / 10);
+            blinkColor.color = tmp;
+            return;
+        }
+
+
         if(Input.GetButtonDown("Jump"))
         {
             GameStart = true;
@@ -99,7 +113,7 @@ public class AnxietyController : MonoBehaviour {
                 if (!playerController.breathe && !playerController.beach)
                     anxietyLevel += (Time.deltaTime / anxietySpeed);
                 //Color tmp2 = breatheIcon.color;
-            if (!Quakin)
+            if (!Quakin && !Final)
             {
 
                 if (Input.GetButtonDown("E") && breatheCooldownTimer >= breatheCoolDown && !playerController.beach)
@@ -305,6 +319,11 @@ public class AnxietyController : MonoBehaviour {
                     blinkColor.color = tmp;
                     breatheTimer = 0;
                     Quakin = false;
+                    if(Final)
+                    {
+                        Final = false;
+                        fadOut = true;
+                    }
                 }
 
 
