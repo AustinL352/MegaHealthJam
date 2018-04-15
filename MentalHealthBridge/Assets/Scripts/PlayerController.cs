@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
         slider.value = anxiety.anxietyLevel;
 
-        if (anxiety.anxietyLevel >= 0.75f)
+        if (anxiety.anxietyLevel >= 0.50f)
             anim.SetBool("Anxiety", true);
         else
             anim.SetBool("Anxiety", false);
