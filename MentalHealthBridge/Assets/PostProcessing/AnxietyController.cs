@@ -352,7 +352,8 @@ public class AnxietyController : MonoBehaviour {
     {
         if(other.tag == "Safe Room")
         {
-            anxietyLevel -= Time.deltaTime / (anxietySpeed * .5f);
+            Debug.Log("Sass");
+            anxietyLevel -= (Time.deltaTime / (anxietySpeed))  * 3;
         }
 
        

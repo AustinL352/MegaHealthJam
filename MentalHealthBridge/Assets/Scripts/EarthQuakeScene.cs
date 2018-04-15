@@ -6,7 +6,6 @@ public class EarthQuakeScene : MonoBehaviour
 {
     public PlayerController script;
     public AnxietyController anxiety;
-
     public GameObject quake;
 
 

@@ -136,10 +136,16 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Quake")
         {
             quakeController.enabled = true;
+            other.enabled = false;
         }
         else if(other.tag == "FinalTrigger")
         {
             finalTrigger.enabled = true;
+        }
+        else if(other.tag == "Auditorium")
+        {
+            RenderSettings.ambientIntensity = .15f;
+            other.enabled = false;
         }
     }
 }
