@@ -21,7 +21,7 @@ public class EarthQuakeScene : MonoBehaviour
         anxiety.anxietyLevel = 0.5f;
 
         originalRot = transform.localRotation;
-        transform.rotation = Quaternion.Euler(transform.localRotation.x, 90, transform.localRotation.z);
+        transform.rotation = Quaternion.Euler(Time.deltaTime, 90, transform.localRotation.z) * Quaternion.Euler(-10, 1, 0);
 
         originalPos = transform.localPosition;
         transform.localPosition = transform.position + Random.insideUnitSphere * 5;
