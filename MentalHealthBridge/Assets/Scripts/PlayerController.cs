@@ -21,14 +21,20 @@ public class PlayerController : MonoBehaviour
     float breathTime = 1;
     float walkTime = 1;
 
+    bool PlayedRight = false;
+    bool PlayedLeft = false;
+
 
     CharacterController characterController;
     public GameObject playerBase;
+    public AudioSource footStep;
 
     void Start ()
     {
         characterController = playerBase.GetComponent<CharacterController>();
         horizontalRot = 90;
+
+        AudioSource footStep = new AudioSource();
     }
 
 	void Update ()
@@ -42,15 +48,30 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("VerticalButton") )
         {
-            Debug.Log("VericalButton");
-            if (walkTime > 0.5f)
+            if (walkTime > 0.3f)
+            {
                 zRot += (Time.deltaTime * 3);
-            else if (walkTime >= 0)
+                if (!PlayedRight)
+                {
+                    footStep.Play();
+                    PlayedRight = true;
+                    PlayedLeft = false;
+                }
+            }
+            else if (walkTime >= -0.4)
+            {
                 zRot -= (Time.deltaTime * 3);
+                if (!PlayedLeft)
+                {
+                    footStep.Play();
+                    PlayedRight = false;
+                    PlayedLeft = true;
+                }
+            }
 
             walkTime -= (Time.deltaTime);
 
-            if (walkTime < 0)
+            if (walkTime < -0.4F)
                 walkTime = 1;
         }
         else if(zRot != 0)
