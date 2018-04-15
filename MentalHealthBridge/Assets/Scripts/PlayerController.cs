@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public AnxietyController anxiety;
     public Slider slider;
+    public Animator anim;
 
     Vector3 velo;
 
@@ -36,20 +38,21 @@ public class PlayerController : MonoBehaviour
     {
         characterController = playerBase.GetComponent<CharacterController>();
         horizontalRot = 90;
-
         AudioSource footStep = new AudioSource();
     }
 
 	void Update ()
     {
-        if (!breathe)
+        if (!breathe && !beach)
             velo = ((transform.right * Input.GetAxis("HorizontalButton")) + (transform.forward * Input.GetAxis("VerticalButton"))) * speed;
+        else
+            velo = Vector3.zero;
         velo.y = 0;
 
         //verticalVelocity += Physics.gravity.y * Time.deltaTime;
         //velo.y = verticalVelocity;
 
-        if (Input.GetButton("VerticalButton") )
+        if (Input.GetButton("VerticalButton")  && !breathe && !beach)
         {
             if (walkTime > 0.3f)
             {
@@ -110,5 +113,10 @@ public class PlayerController : MonoBehaviour
         characterController.Move(velo * Time.deltaTime);
 
         slider.value = anxiety.anxietyLevel;
+
+        if (anxiety.anxietyLevel >= 0.75f)
+            anim.SetBool("Anxiety", true);
+        else
+            anim.SetBool("Anxiety", false);
     }
 }
