@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool beach;
 
     public AnxietyController anxiety;
-    public GameObject sliderObject;
+    public Slider slider;
 
     Vector3 velo;
 
@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     void Start ()
     {
         characterController = playerBase.GetComponent<CharacterController>();
-        Slider slider = sliderObject.GetComponent<Slider>();
         horizontalRot = 90;
 
         AudioSource footStep = new AudioSource();
@@ -109,5 +108,7 @@ public class PlayerController : MonoBehaviour
             breathTime = 1;
 
         characterController.Move(velo * Time.deltaTime);
+
+        slider.value = anxiety.anxietyLevel;
     }
 }
