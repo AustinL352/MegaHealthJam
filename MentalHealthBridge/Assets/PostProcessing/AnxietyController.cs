@@ -54,8 +54,11 @@ public class AnxietyController : MonoBehaviour {
     float positiveCooldownTimer = 0;
 
     public bool GameStart = false;
+    public bool Quakin = false;
 
     public GameObject startText;
+    public GameObject quake;
+
 
 
     // Use this for initialization
@@ -93,178 +96,223 @@ public class AnxietyController : MonoBehaviour {
 
         if (GameStart)
         {
-            if (!playerController.breathe && !playerController.beach)
-                anxietyLevel += (Time.deltaTime / anxietySpeed);
-            //Color tmp2 = breatheIcon.color;
-
-            if (Input.GetButtonDown("E") && breatheCooldownTimer >= breatheCoolDown && !playerController.beach)
-            {
-                anxietyLevel -= .5f;
-                playerController.breathe = true;
-
-                Color tmp = breatheIcon.color;
-                tmp.a = 0;
-                breatheIcon.color = tmp;
-
-                AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.clip = Resources.Load(heavyBreath) as AudioClip;
-                audioSource.Play();
-                breatheCooldownTimer = 0;
-            }
-            else if (Input.GetButtonDown("Q") && !playerController.breathe)
+                if (!playerController.breathe && !playerController.beach)
+                    anxietyLevel += (Time.deltaTime / anxietySpeed);
+                //Color tmp2 = breatheIcon.color;
+            if (!Quakin)
             {
 
-                if (beachCooldownTimer >= beachCoolDown)
+                if (Input.GetButtonDown("E") && breatheCooldownTimer >= breatheCoolDown && !playerController.beach)
                 {
-                    anxietyLevel -= .75f;
-                    playerController.beach = true;
-                    Color tmp = beachIcon.color;
+                    anxietyLevel -= .5f;
+                    playerController.breathe = true;
+
+                    Color tmp = breatheIcon.color;
                     tmp.a = 0;
-                    beachIcon.color = tmp;
-
-                    beachSource = gameObject.AddComponent<AudioSource>();
-                    beachSource.clip = Resources.Load(beachSound) as AudioClip;
-                    beachSource.volume = 0;
-                    beachSource.Play();
-                    beachCooldownTimer = 0;
-                }
-            }
-            else if (Input.GetButtonDown("F") && (!playerController.breathe && !playerController.beach))
-            {
-                if (positiveCooldownTimer >= positiveCoolDown)
-                {
-                    anxietyLevel -= .3f;
-                    //playerController.beach = true;
-
+                    breatheIcon.color = tmp;
 
                     AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-                    audioSource.clip = Resources.Load(positiveD[currentPosD++]) as AudioClip;
-                    audioSource.volume = .25f;
+                    audioSource.clip = Resources.Load(heavyBreath) as AudioClip;
                     audioSource.Play();
-                    positiveCooldownTimer = 0;
-                    if (currentPosD > 4)
-                        currentPosD = 0;
+                    breatheCooldownTimer = 0;
                 }
-            }
-
-
-            if (playerController.breathe)
-            {
-                breatheTimer += Time.deltaTime;
-                Color tmp = blinkColor.color;
-                tmp.a = Mathf.Sin(breatheTimer * 1.75f);
-                blinkColor.color = tmp;
-            }
-            else
-            {
-                breatheCooldownTimer += Time.deltaTime;
-                Color tmp = breatheIcon.color;
-                tmp.a = Mathf.Lerp(0, 1, (breatheCooldownTimer) / (breatheCoolDown));
-
-                breatheIcon.color = tmp;
-            }
-
-            if (playerController.beach)
-            {
-                Color tmp = new Color();
-                if (beachTimer > 8)
+                else if (Input.GetButtonDown("Q") && !playerController.breathe)
                 {
-                    beachTimer += Time.deltaTime;
-                    tmp = blinkColor.color;
-                    tmp.a = 1 - Mathf.Lerp(0, 1, beachTimer - 8);
+
+                    if (beachCooldownTimer >= beachCoolDown)
+                    {
+                        anxietyLevel -= .75f;
+                        playerController.beach = true;
+                        Color tmp = beachIcon.color;
+                        tmp.a = 0;
+                        beachIcon.color = tmp;
+
+                        beachSource = gameObject.AddComponent<AudioSource>();
+                        beachSource.clip = Resources.Load(beachSound) as AudioClip;
+                        beachSource.volume = 0;
+                        beachSource.Play();
+                        beachCooldownTimer = 0;
+                    }
+                }
+                else if (Input.GetButtonDown("F") && (!playerController.breathe && !playerController.beach))
+                {
+                    if (positiveCooldownTimer >= positiveCoolDown)
+                    {
+                        anxietyLevel -= .3f;
+                        //playerController.beach = true;
+
+
+                        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                        audioSource.clip = Resources.Load(positiveD[currentPosD++]) as AudioClip;
+                        audioSource.volume = .25f;
+                        audioSource.Play();
+                        positiveCooldownTimer = 0;
+                        if (currentPosD > 4)
+                            currentPosD = 0;
+                    }
+                }
+
+
+                if (playerController.breathe)
+                {
+                    breatheTimer += Time.deltaTime;
+                    Color tmp = blinkColor.color;
+                    tmp.a = Mathf.Sin(breatheTimer * 1.75f);
                     blinkColor.color = tmp;
                 }
                 else
                 {
-                    beachTimer += Time.deltaTime;
-                    tmp = blinkColor.color;
-                    tmp.a = Mathf.Lerp(0, 1, beachTimer);
-                    blinkColor.color = tmp;
+                    breatheCooldownTimer += Time.deltaTime;
+                    Color tmp = breatheIcon.color;
+                    tmp.a = Mathf.Lerp(0, 1, (breatheCooldownTimer) / (breatheCoolDown));
+
+                    breatheIcon.color = tmp;
                 }
 
-                if (beachTimer > 7)
+                if (playerController.beach)
                 {
-                    tmp = beach.color;
-                    tmp.a = 1 - Mathf.Lerp(0, 1, (beachTimer - 7));
-                    beach.color = tmp;
-                    beachSource.volume = tmp.a;
+                    Color tmp = new Color();
+                    if (beachTimer > 8)
+                    {
+                        beachTimer += Time.deltaTime;
+                        tmp = blinkColor.color;
+                        tmp.a = 1 - Mathf.Lerp(0, 1, beachTimer - 8);
+                        blinkColor.color = tmp;
+                    }
+                    else
+                    {
+                        beachTimer += Time.deltaTime;
+                        tmp = blinkColor.color;
+                        tmp.a = Mathf.Lerp(0, 1, beachTimer);
+                        blinkColor.color = tmp;
+                    }
+
+                    if (beachTimer > 7)
+                    {
+                        tmp = beach.color;
+                        tmp.a = 1 - Mathf.Lerp(0, 1, (beachTimer - 7));
+                        beach.color = tmp;
+                        beachSource.volume = tmp.a;
+
+                    }
+                    else
+                    {
+                        tmp = beach.color;
+                        tmp.a = Mathf.Lerp(0, 1, (beachTimer - 1) / 5);
+                        beach.color = tmp;
+                        beachSource.volume = tmp.a;
+
+                    }
 
                 }
                 else
                 {
-                    tmp = beach.color;
-                    tmp.a = Mathf.Lerp(0, 1, (beachTimer - 1) / 5);
-                    beach.color = tmp;
-                    beachSource.volume = tmp.a;
+                    beachCooldownTimer += Time.deltaTime;
+                    Color tmp = beachIcon.color;
+                    tmp.a = Mathf.Lerp(0, 1, (beachCooldownTimer) / (beachCoolDown));
 
+                    beachIcon.color = tmp;
+                    if (beachSource)
+                    {
+                        beachSource.Stop();
+                    }
                 }
 
-            }
-            else
-            {
-                beachCooldownTimer += Time.deltaTime;
-                Color tmp = beachIcon.color;
-                tmp.a = Mathf.Lerp(0, 1, (beachCooldownTimer) / (beachCoolDown));
-
-                beachIcon.color = tmp;
-                if (beachSource)
+                if (beachTimer > 9)
                 {
-                    beachSource.Stop();
+                    playerController.beach = false;
+                    Color tmp = blinkColor.color;
+                    tmp.a = 0;
+                    blinkColor.color = tmp;
+                    tmp = beach.color;
+                    tmp.a = 0;
+                    beach.color = tmp;
+                    beachTimer = 0;
                 }
-            }
 
-            if (beachTimer > 9)
-            {
-                playerController.beach = false;
-                Color tmp = blinkColor.color;
-                tmp.a = 0;
-                blinkColor.color = tmp;
-                tmp = beach.color;
-                tmp.a = 0;
-                beach.color = tmp;
-                beachTimer = 0;
-            }
+                if (breatheTimer > 3)
+                {
+                    playerController.breathe = false;
+                    Color tmp = blinkColor.color;
+                    tmp.a = 0;
+                    blinkColor.color = tmp;
+                    breatheTimer = 0;
+                }
 
-            if (breatheTimer > 3)
-            {
-                playerController.breathe = false;
-                Color tmp = blinkColor.color;
-                tmp.a = 0;
-                blinkColor.color = tmp;
-                breatheTimer = 0;
-            }
+                if (anxietyLevel > .25f)
+                    currentLevel = 1;
+                if (anxietyLevel > .75f)
+                    currentLevel = 2;
+                else
+                    currentLevel = 0;
 
-            if (anxietyLevel > .25f)
-                currentLevel = 1;
-            if (anxietyLevel > .75f)
-                currentLevel = 2;
+
+               
+                for (int i = 0; i < 3; i++)
+                {
+                    if (i == currentLevel && !playerController.breathe && !playerController.beach)
+                    {
+                        heartBeats[i].volume = anxietyLevel;
+                        //Debug.Log(heartBeats[i].volume);
+                        breathing[i].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
+                    }
+                    else
+                    {
+                        heartBeats[i].volume = 0;
+                        breathing[i].volume = 0;
+                    }
+
+                }
+
+                positiveCooldownTimer += Time.deltaTime;
+                Color tmp3 = positiveIcon.color;
+                tmp3.a = Mathf.Clamp(positiveCooldownTimer / positiveCoolDown, 0, 1);
+                positiveIcon.color = tmp3;
+            }
             else
-                currentLevel = 0;
+            {
+                if (Input.GetButtonDown("E") && breatheCooldownTimer >= breatheCoolDown && !playerController.beach)
+                {
+                    anxietyLevel -= .5f;
+                    playerController.breathe = true;
+
+                    Color tmp = breatheIcon.color;
+                    tmp.a = 0;
+                    breatheIcon.color = tmp;
+
+                    AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                    audioSource.clip = Resources.Load(heavyBreath) as AudioClip;
+                    audioSource.Play();
+                    breatheCooldownTimer = 0;
+                }
+
+                if (playerController.breathe)
+                {
+                    breatheTimer += Time.deltaTime;
+                    Color tmp = blinkColor.color;
+                    tmp.a = Mathf.Sin(breatheTimer * 1.75f);
+                    if(tmp.a > .8)
+                        quake.SetActive(false);
+
+                    blinkColor.color = tmp;
+                }
+
+                if (breatheTimer > 3)
+                {
+                    playerController.breathe = false;
+                    Color tmp = blinkColor.color;
+                    tmp.a = 0;
+                    blinkColor.color = tmp;
+                    breatheTimer = 0;
+                    Quakin = false;
+                }
 
 
+
+            }
             anxietyLevel = Mathf.Clamp(anxietyLevel, 0, 1);
             vSettings.intensity = anxietyLevel;
             postProcess.vignette.settings = vSettings;
-            for (int i = 0; i < 3; i++)
-            {
-                if (i == currentLevel && !playerController.breathe && !playerController.beach)
-                {
-                    heartBeats[i].volume = anxietyLevel;
-                    Debug.Log(heartBeats[i].volume);
-                    breathing[i].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
-                }
-                else
-                {
-                    heartBeats[i].volume = 0;
-                    breathing[i].volume = 0;
-                }
-
-            }
-
-            positiveCooldownTimer += Time.deltaTime;
-            Color tmp3 = positiveIcon.color;
-            tmp3.a = Mathf.Clamp(positiveCooldownTimer / positiveCoolDown, 0, 1);
-            positiveIcon.color = tmp3;
 
             // breathing[0].volume = Mathf.Lerp(0, 0.1f, anxietyLevel);
 
@@ -293,7 +341,7 @@ public class AnxietyController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter");
+        //Debug.Log("Enter");
         if(other.tag == "NegativeD")
         {
 
